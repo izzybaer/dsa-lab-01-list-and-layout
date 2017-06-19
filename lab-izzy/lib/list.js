@@ -20,7 +20,6 @@ List.prototype.pop = function() {
 List.prototype.reduce = function(acc, curr) {
   let result, start;
 
-  //this serves as the filter
   if(!curr) {
     result = this[0];
     start = 1;
@@ -28,7 +27,7 @@ List.prototype.reduce = function(acc, curr) {
     result = curr;
     start = 0;
   }
-  // this serves as map
+
   for(var i = start; i < this.length; i++) {
     result = acc(result, this[i]);
   }
