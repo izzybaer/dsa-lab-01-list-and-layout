@@ -12,23 +12,25 @@ List.prototype.push = function(value) {
 List.prototype.pop = function() {
   if (this.length < 1) return;
   let result = this[this.length - 1];
-  delete this[this.length - 1]
+  delete this[this.length - 1];
   this.length--;
   return result;
 };
 
-List.prototype.reduce = function (callback, val) {
+List.prototype.reduce = function(acc, curr) {
   let result, start;
 
-  if(!val) {
+  //this serves as the filter
+  if(!curr) {
     result = this[0];
     start = 1;
   } else {
-    result = val;
+    result = curr;
     start = 0;
   }
+  // this serves as map
   for(var i = start; i < this.length; i++) {
-    result = callback(result, this[i]);
+    result = acc(result, this[i]);
   }
   return result;
 };
