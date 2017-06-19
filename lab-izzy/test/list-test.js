@@ -46,7 +46,12 @@ describe('testing list and methods', () => {
     describe('testing reduce', () => {
       it('should return 10', () => {
         let list = new List();
-        let result = list.reduce([2, 3, 5], (2 + 3) + 5);
+        
+        list.push(2);
+        list.push(3);
+        list.push(5);
+
+        let result = list.reduce((a,c) => a + c);
         expect(result).toEqual(10);
       });
     });
